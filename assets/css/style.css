@@ -23,13 +23,14 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     font-smoothing: antialiased;
-}
-body {
     font-family: 'Rambla', sans-serif;
     font-size: 16px;
     line-height: 1.75em;
     font-weight: 400;
     color: #666;
+    background-color: #F4F3EF;
+}
+body {
 }
 h1,
 h2,
@@ -225,6 +226,10 @@ input[type="checkbox"] {
 
 .flex-grow-1 {
     flex-grow: 1;
+}
+.svg-container .svgs {
+    max-height: 50px;
+    width: auto;
 }
 .flex {
     display: -webkit-box;
@@ -422,6 +427,9 @@ input[type="checkbox"] {
         width: 30%;
     }
 }
+a:hover.paper-box {
+    border-bottom: 2px solid #E52E71;
+}
 @media screen and (max-width: 768px) {
     #claire-aside {
         width: 270px;
@@ -523,6 +531,7 @@ input[type="checkbox"] {
 #claire-aside #claire-main-menu ul li {
     padding: 23px 0 12px 25px;
     color: #fff;
+    border-bottom: 1px dashed #0DC242;
 }
 #claire-aside #claire-main-menu ul li:hover {
     color: #fff;
@@ -1138,17 +1147,14 @@ body.offcanvas .claire-nav-toggle {
     top: -2px;
 }
 .navbar-nav li.active {    
-    background: #fff;
+    background: #F4F3EF;
+
 }
 .navbar-nav li.active a{    
     color: #28a745;
     font-weight: 600;
 }
-.navbar-nav li.active:hive {    
-    background: #fff;
-    color: #28a745;
-    font-weight: 600;
-}
+ 
 .claire-nav-toggle i::before,
 .claire-nav-toggle i::after {
     content: '';
@@ -1416,7 +1422,9 @@ body.offcanvas .claire-nav-toggle {
 }
 
 
-
+.dash-bottom {
+    border-bottom: 1px dashed #0DC242;
+}
 /* =======  Makeup Services Style ======= */
 .claire-makeup-container {
     position: relative;
