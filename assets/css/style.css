@@ -30,8 +30,7 @@ body {
     color: #666;
     background-color: #F4F3EF;
 }
-body {
-}
+
 h1,
 h2,
 h3,
@@ -438,7 +437,6 @@ a:hover.paper-box {
         -ms-transform: translateX(-270px);
         -o-transform: translateX(-270px);
         transform: translateX(-270px);
-        padding: 30px 30px 15px 30px;
     }
 }
 #claire-aside .claire-logo {
@@ -1626,9 +1624,7 @@ section.testimonials .container-fluid-2 {
     /*float: left;*/
     /*overflow: hidden;*/
 }
-.testimonials .item-box .info .cont {
-    margin-left: 60px;
-}
+
 .testimonials .item-box .info h6 {
     color: #000;
     font-size: 16px;
@@ -1636,6 +1632,9 @@ section.testimonials .container-fluid-2 {
     margin-bottom: 0px;
     padding-top: 5px;
     line-height: 1em;
+}
+.cont h6 {
+    color: #e52e71 !important;
 }
 .testimonials .item-box .info span {
     font-size: 14px;
@@ -2288,7 +2287,7 @@ ol.comment-list li .children li {
 
 /* ======= Footer Style ======= */
 #claire-footer2 {
-    padding: 90px;
+    padding: 77px;
     background: #e52e71;
 }
 #claire-footer2 h2 {
