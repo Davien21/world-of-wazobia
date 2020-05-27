@@ -1,26 +1,7 @@
 (function () {
     'use strict';
     /* ====== Helpful and Reusable functions ====== */
-    function addEffectonEvent (effectClass,event,identity,classToRemove='') {
-        let but = $('.contact-text');
-        if (classToRemove !== '') {
-            $(identity).removeClass(classToRemove)
-        }
-        $(identity).on(event, function(){
-            $(identity).addClass(effectClass)
-        })
-    }
-    addEffectonEvent('tada','mouseenter','.instagram-link');
-    removeEffectonEvent('tada','mouseleave','.instagram-link');
-    function removeEffectonEvent (effectClass,event,identity,classToAdd='') {
-        let but = $('.contact-text');
-        $(identity).on(event, function(){
-            $(identity).removeClass(effectClass)
-        })
-        if (classToAdd !== '') {
-            $(identity).addClass(classToAdd)
-        }
-    }
+     
     /* ====== Specific functions ====== */
     var isMobile = {
         Android: function () {
@@ -149,7 +130,7 @@
     // Sticky 
     var stickyFunction = function () {
         var h = $('.image-content').outerHeight();
-        if ($(window).width() <= 992) {
+        if ($(window).width() <= 1100) {
             $("#sticky_item").trigger("sticky_kit:detach");
         }
         else {
@@ -160,7 +141,7 @@
         $(window).resize(function () {
             var h = $('.image-content').outerHeight();
             $('.sticky-parent').css('height', h);
-            if ($(window).width() <= 992) {
+            if ($(window).width() <= 1100) {
                 $("#sticky_item").trigger("sticky_kit:detach");
             }
             else {

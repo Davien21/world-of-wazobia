@@ -1568,7 +1568,7 @@ body.offcanvas .claire-nav-toggle {
 }
 section.testimonials .container-fluid-2 {
     padding-right: 45px;
-    padding-left: 45px;
+    /*padding-left: 45px;*/
 }
 .testimonials .section-head {
     text-align: left;
@@ -2403,6 +2403,10 @@ ol.comment-list li .children li {
     padding-right: 15px;
     padding-left: 15px;
 }
+.container-fluid-2-margin {
+    margin-right: 15px;
+    margin-left: 15px;
+}
 main {
     /*background-color: #ccc;*/
 }
@@ -2428,7 +2432,11 @@ section#events-section  div.content-box{
 @media screen and (min-width:768px) {
     .container-fluid-2 {
         padding-right: 60px;
-        padding-left: 60px;
+        padding-left: 75px;
+    }
+    .container-fluid-2-margin {
+        margin-right: 60px;
+        margin-left: 60px;
     }
     .samples img {
         -webkit-filter: none;
@@ -2444,9 +2452,8 @@ section#events-section  div.content-box{
 
 }
 @media screen and (min-width:992px) {
-    section#services-section div.position-re {
-        max-height: 250px;
-        /*min-height: 277px;*/
+    body {
+        /*display: none;*/
     }
     section#events-section  div.content-box{
         padding: 80px 30px;
@@ -2454,11 +2461,14 @@ section#events-section  div.content-box{
     .claire-testimonial {
         background-position-y: center;
         background-position-x: 100px;
-        background-image: 
     }
 
 }   
 @media screen and (min-width:1200px) {
+    .container-fluid-2 {
+        padding-right: 60px;
+        padding-left: 60px;
+    }
      section#events-section  div.content-box{
         border-radius:50%;
         padding: 80px 30px;
