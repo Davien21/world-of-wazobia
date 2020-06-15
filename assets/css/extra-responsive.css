@@ -20,6 +20,24 @@
 	box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
 	background-color: #fff;
 }
+.paper-box-shadow {
+	box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+}
+.breadcrumb-item a{
+    color: #0069D9 !important;
+    text-decoration: underline;
+}
+.breadcrumb-item {
+    font-size: 0.95em;
+}
+.bg-grey {
+	background-color: #E9ECEF;
+}
+.grey-dash-bottom {
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+	margin-bottom: 30px;
+}
 .orange {
 	background-color: #FF9800;
 }

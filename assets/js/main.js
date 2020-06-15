@@ -192,95 +192,63 @@
             }
         }
     });
-    $('.events .owl-carousel').owlCarousel({
-        loop:true,
-        margin: 30,
-        mouseDrag:true,
-        autoplay:true,
-        dots: false,
-        nav: true,
-        navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-            },
-            600:{
-                items:2
-            },
-            1000:{
-                items:2
-            }
-        }
-    });
-    // samples owlCarousel
-    $('.samples .owl-carousel').owlCarousel({
-        loop:true,
-        margin: 10,
-        mouseDrag:true,
-        autoplay:true,
-        dots: false,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                margin: 0,
-                items:1
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                margin: 30,
-                items:3
-            }
-        }
-    });
+    
     // Team owlCarousel
-    $('.team .owl-carousel').owlCarousel({
-        loop: true,
-        margin: 0,
-        autoplay: false,
-        dots: true,
-        responsiveClass:true,
-        responsive:{
-            0:{
-                items:1,
-                autoplay:true,
-            },
-            600:{
-                items:2,
-                autoplay:true,
-            },
-            1000:{
-                items:3,
-                autoplay:false,
+     
+    $('#faq-boxes.owl-carousel').owlCarousel({
+            loop:true,
+            margin: 30,
+            mouseDrag:true,
+            // autoplay:true,
+            dots: false,
+            navigation : true,
+            navigationText : ["prev","next"],
+            nav: true,
+            navText: ["<span class='lnr ti-angle-left'></span>","<span class='lnr ti-angle-right'></span>"],
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    margin: 5,
+                    items:1
+                },
+                576:{
+                    margin: 30,
+                    items:2
+                },
+                840:{
+                    margin: 30,
+                    items:3
+                },
+                1200:{
+                    margin: 30,
+                    items:4
+                }
             }
-        }
-    });
+        });
      // Accordion
     $(document).ready(function() {
-    $('.collapse').on('shown.bs.collapse', function () {
-        $(this).parent().addClass('active');
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().addClass('active');
+        });
+        $('.collapse').on('hidden.bs.collapse', function () {
+            $(this).parent().removeClass('active');
+        });
     });
-    $('.collapse').on('hidden.bs.collapse', function () {
-        $(this).parent().removeClass('active');
-    });
-});
     /* ======= Declaratives =======*/
     $('section.claire-testimonial .item-box').addClass('testimonial-box');
    
     /* ======= Extras =======*/
     // img zoom
-     $(".img-zoom").magnificPopup({
-    type: "image"
-    , closeOnContentClick: !0
-    , mainClass: "mfp-fade"
-    , gallery: {
-        enabled: !0
-        , navigateByImgClick: !0
-        , preload: [0, 1]
-    }
-})
+    $(".img-zoom").magnificPopup({
+        type: "image"
+        , closeOnContentClick: !0
+        , mainClass: "mfp-fade"
+        , gallery: {
+            enabled: !0
+            , navigateByImgClick: !0
+            , preload: [0, 1]
+        }
+    })
     var buttons = document.querySelectorAll(".btn .btn-contact .claire-contact-info");
     for(var i = 0; i < buttons.length; i++) {
       var button = buttons[i];
@@ -291,4 +259,12 @@
           button.classList.remove("active");
       });
     }
+    $(document).ready(function(){
+        $(".dropper").click(function(){
+            $(this).find('.drop').toggleClass('d-none')
+            $(this).find('.link').toggleClass('d-none')
+        });
+        
+    });
+
 }());
