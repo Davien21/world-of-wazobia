@@ -59,7 +59,7 @@
 
         <!-- Js -->
         <?php
-            // main_scripts();
+            main_scripts();
         ?>
         <script src="./assets/js/questions.js"></script>
     </div>

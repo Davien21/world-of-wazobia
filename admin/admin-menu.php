@@ -67,7 +67,7 @@
                         <li <?=$l2?> ><a href='view-users.php'>Users</a></li>
                         <li <?=$l3?> ><a href='view-questions.php'>Questions</a></li>
                         <li <?=$l4?> ><a href='view-updates.php'>Updates</a></li>
-                        <li <?=$l5?> ><a href='login.php'>Login</a></li>
+                        <!-- <li <?=$l5?> ><a href='login.php'>Login</a></li> -->
                         <li <?=$l6?> ><a href='../backends/logout.php'>Logout</a></li>
                         <!-- <li><a href='../contact.php'>Contact Us</a></li> -->
                     </ul>
