@@ -1,6 +1,6 @@
 <?php
     require './admin-menu.php';
-    // require 'backends/home-back.php';
+    require 'backends/edit-question-back.php';
 ?>
     <?php
         admin_menu('questions');
@@ -24,7 +24,31 @@
                     </div>
                 </div>
             </header>
-
+            <section class="container-fluid-2">
+                <?php
+                    if (isset($red_alert) and !strstr($red_alert, 'already')) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"><?=$red_alert?></div>
+                <?php
+                    }else if(isset($red_alert) and strstr($red_alert, 'already')){
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"> 
+                        <span class="d-block"><?=$red_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./add-question.php" class="btn btn-info mt-3">Post New Question</a>
+                    </div>
+                <?php
+                    }else if (isset($green_alert)) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-success"> 
+                        <span class="d-block"><?=$green_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./add-question.php" class="btn btn-info mt-3">Post New Question</a>
+                    </div>
+                <?php
+                    }
+                ?>
+            </section>
             <section class="mb-5" >
                 <div class="container-fluid-2 mt-2" >
 
@@ -43,8 +67,10 @@
                                     <div class="col-sm-12 px-0 px-md-3">
                                         <form class="account-info m-0" method="post">
                                             <div class="px-3 ">
-                                                <label> Type </label> 
-                                                <select class="form-control" tabindex="1">
+                                                <label> Type </label>
+                                                <span class="type d-none"><?=$type?></span> 
+                                                <select class="form-control def-font-face" tabindex="1" name="type">
+                                                    <option selected="" disabled="">--Select a Question Type--</option>
                                                     <?php
                                                         foreach ($question_types as $key => $value) {
                                                     ?>
@@ -53,21 +79,31 @@
                                                         }
                                                     ?>
                                                 </select>
+                                                <span class="err"><?=$type_err?></span>
                                             </div>
                                             <div class="px-3 ">
-                                                <label> Question </label> 
-                                                <textarea class="question form-control" tabindex="2">
+                                                <label for="question"> Question </label> 
+                                                <span class="question d-none"><?=$question?></span> 
+
+                                                <textarea id="question" class="form-control" 
+                                                    tabindex="2" name="question" placeholder="Type in a question...">
                                                     
                                                 </textarea>
+                                                <span class="err"><?=$question_err?></span>
                                             </div>
                                             <div class="px-3 ">
-                                                <label> Answer </label> 
-                                                <textarea class="question form-control" tabindex="3">
+                                                <label for="answer"> Answer </label> 
+                                                <span class="answer d-none"><?=$answer?></span> 
+                                                <textarea rows="7" class=" form-control" id="answer" 
+                                                    tabindex="3" name="answer" placeholder="Type in the answer...">
                                                     
                                                 </textarea>
+                                                <span class="err"><?=$answer_err?></span>
                                             </div>
                                             <div class="" tabindex="4">
-                                                <button name="save" class="btn btn-success px-4 def-font-face form-control">Save </button>
+                                                <button name="save" class="btn btn-success px-4 def-font-face form-control">
+                                                    Edit and Save Question 
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -90,6 +126,19 @@
         <?php
             main_scripts();
         ?>
+        <script>
+            let question = $('span.question').text();
+            $('textarea#question').text(question);
+
+            let answer = $('span.answer').text();
+            $('textarea#answer').text(answer);
+            let type = $('span.type').text()
+            for (var i = 0; i < $('select[name=type] option').length; i++) {
+                if($('select[name=type] option')[i].innerText == type) {
+                    $('select[name=type] option')[i].setAttribute('selected', true);
+                }
+            }
+        </script>
     </div>
 </body>
 

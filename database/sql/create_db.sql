@@ -14,7 +14,7 @@
 	    last_edited timestamp DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP,
 	    pass VARCHAR(255)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-	CREATE TABLE `worldof_wow`.`admin_list` (
+	CREATE TABLE `worldof_wow`.`admins_list` (
 	    id INT AUTO_INCREMENT PRIMARY KEY, 
 	    f_name VARCHAR(150),
 	    l_name VARCHAR(150),
@@ -28,9 +28,11 @@
 	CREATE TABLE `worldof_wow`.`questions_list` (
 		id INT AUTO_INCREMENT PRIMARY KEY, 
 		question VARCHAR(300),
-		answer VARCHAR(300),
-		up_votes INT,
-		down_votes INT,
+		type VARCHAR(20),
+		answer VARCHAR(1000),
+		admin_id INT,
+		up_votes INT DEFAULT 0,
+		down_votes INT DEFAULT 0,
 		status VARCHAR (20) DEFAULT 'enabled',
 		date_added timestamp DEFAULT current_timestamp(),
 		last_edited timestamp DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP
@@ -45,7 +47,7 @@
 		date_added timestamp DEFAULT current_timestamp(),
 		last_edited timestamp DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-	CREATE TABLE `worldof_wow`.`transaction_list` (
+	CREATE TABLE `worldof_wow`.`transactions_list` (
 		id INT AUTO_INCREMENT PRIMARY KEY, 
 		transaction_type VARCHAR(20),
 		payer_email VARCHAR(255),
@@ -54,7 +56,7 @@
 		date_added timestamp DEFAULT current_timestamp(),
 		last_edited timestamp DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-	CREATE TABLE `worldof_wow`.`investment_list` (
+	CREATE TABLE `worldof_wow`.`investments_list` (
 		id INT AUTO_INCREMENT PRIMARY KEY, 
 		user_id INT,
 		iv_no VARCHAR(20),

@@ -239,16 +239,7 @@
    
     /* ======= Extras =======*/
     // img zoom
-    $(".img-zoom").magnificPopup({
-        type: "image"
-        , closeOnContentClick: !0
-        , mainClass: "mfp-fade"
-        , gallery: {
-            enabled: !0
-            , navigateByImgClick: !0
-            , preload: [0, 1]
-        }
-    })
+     
     var buttons = document.querySelectorAll(".btn .btn-contact .claire-contact-info");
     for(var i = 0; i < buttons.length; i++) {
       var button = buttons[i];
@@ -259,12 +250,8 @@
           button.classList.remove("active");
       });
     }
-    $(document).ready(function(){
-        $(".dropper").click(function(){
-            $(this).find('.drop').toggleClass('d-none')
-            $(this).find('.link').toggleClass('d-none')
-        });
+    //Dropper function
+    
         
-    });
 
 }());

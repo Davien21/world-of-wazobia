@@ -2,18 +2,18 @@
 	// echo "delete linked!";
 	class DeleteQuery extends DbConnect
 	{
-		public function delete_teacher_token($token_id) {
+		public function delete_question_by_id($id) {
 			$sql = "
-				DELETE FROM teacher_invite_tokens 
-				WHERE id = :token_id;
+				DELETE FROM questions_list 
+				WHERE id = :id;
 			";
 			$delete_query = PDO::prepare($sql);
-			$delete_query->execute(['token_id'=>$token_id]);
+			$delete_query->execute(['id'=>$id]);
 			if ($delete_query ->errorCode() == 0) {
 				if ($delete_query->rowCount() !==0 ) {
-					return ['status'=>true, 'message'=>"Deleted invite token Successfully"];
+					return ['status'=>true, 'message'=>"Deleted Question Successfully"];
 				}else {
-					return ['status'=>false, 'message'=>"failed to delete invite token"];
+					return ['status'=>false, 'message'=>"Failed to delete Question"];
 				}
 			}
 			else {

@@ -2,50 +2,20 @@
 	// echo "update linked!";
 	class UpdateQuery extends DbConnect
 	{
-		public function update_quiz_number ($id) {
+	  	public function update_question ($id,$question,$type,$answer,$admin_id) {
 			$sql = "
-				UPDATE quiz_list
-				SET  question_count = question_count + 1
-				WHERE quiz_status = 'unscheduled' AND id = :id AND status = 'enabled';
-			";
-			$update_query = PDO::prepare($sql);
-			$update_query -> execute(['id'=>$id]);
-			if ($update_query ->errorCode() == 0) {
-				return ['data'=>'','status'=>true, 'message'=>"Updated quiz count Successfully"];
-			}
-			else {
-				$error = $update_query->errorInfo();
-				print_r(['data'=>'','status'=>false, 'message'=>"There was an error - " . $error[2] ]);
-				return ['data'=>'','status'=>false, 'message'=>"There was an error - " . $error[2] ];
-			}
-		}
-		public function add_column($column_name,$table,$datatype,$position='') {
-			$sql = "ALTER TABLE ${table} 
-					ADD ${column_name} ${datatype} ${position};";
-			$alter_query = PDO::prepare($sql);
-			$alter_query->execute([]);
-			if ($alter_query ->errorCode() == 0) {
-				print_r(['data'=>'','status'=>true, 'message'=>"Table was altered to make column Successfully"]);
-				return ['data'=>'','status'=>true, 'message'=>"Added column Successfully"];
-			}
-			else {
-				$error = $alter_query->errorInfo();
-				print_r(['data'=>'','status'=>false, 'message'=>"There was an error - " . $error[2] ]);
-				return ['data'=>'','status'=>false, 'message'=>"There was an error - " . $error[2] ];
-			}
-		}
-	  	public function update_quiz_question_data ($quiz_id,$question_data,$question_no) {
-			$sql = "
-				UPDATE quiz_questions
-				SET  question_data = :question_data
-				WHERE quiz_id = :quiz_id 
-				AND question_no = :question_no
+				UPDATE questions_list
+				SET  question = :question,type = :type,answer = :answer, admin_id = :admin_id
+				WHERE id = :id 
 				AND status = 'enabled';
 			";
 			$update_query = PDO::prepare($sql);
-			$update_query -> execute(['quiz_id'=>$quiz_id,'question_data'=>$question_data,'question_no'=>$question_no]);
+			$update_query -> 
+				execute([
+					'id'=>$id,'question'=>$question,'type'=>$type,'answer'=>$answer,'admin_id'=>$admin_id
+				]);
 			if ($update_query ->errorCode() == 0) {
-				return ['data'=>'','status'=>true, 'message'=>"Updated quiz question Successfully"];
+				return ['data'=>'','status'=>true, 'message'=>"Updated Question Successfully"];
 			}
 			else {
 				$error = $update_query->errorInfo();

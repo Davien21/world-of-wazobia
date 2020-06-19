@@ -1,8 +1,4 @@
-$(document).ready(function(){
-	$(".dropper").click(function(){
-		$(this).find('.drop').animate({
-		  height: 'toggle',
-		});
-	});
-	
+$(".dropper").click(function(){
+    $(this).find('.drop').toggleClass('d-none')
+    $(this).find('.link').toggleClass('d-none')
 });

@@ -22,16 +22,16 @@
 				return ['data'=>'','status'=>false, 'message'=>"There was an error - " . $error[2] ];
 			}
 		}
-		public function add_question($question,$type,$answer,$admin) {
-			$sql = "INSERT INTO question_list(question,type,answer,admin)
-					 VALUES(:question,:type,:answer,:admin)";
+		public function add_question($question,$type,$answer,$admin_id) {
+			$sql = "INSERT INTO questions_list(question,type,answer,admin_id)
+					 VALUES(:question,:type,:answer,:admin_id)";
 			$insert_query = PDO::prepare($sql);
 			$insert_query -> 
 				execute([
-					'question'=>$question,'type'=>$type,'answer'=>$answer,'admin'=>$admin
+					'question'=>$question,'type'=>$type,'answer'=>$answer,'admin_id'=>$admin_id
 				]);
 			if ($insert_query ->errorCode() == 0) {
-				// print_r(['data'=>'','status'=>true, 'message'=>"School details Inserted Successfully"]);
+				// print_r(['data'=>'','status'=>true, 'message'=>"Question Added Successfully"]);
 				return ['data'=>'','status'=>true, 'message'=>"Question Added Successfully"];
 			}
 			else {

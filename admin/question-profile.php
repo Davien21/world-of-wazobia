@@ -1,6 +1,6 @@
 <?php
     require './admin-menu.php';
-    // require 'backends/home-back.php';
+    require 'backends/question-profile-back.php';
 ?>
     <?php
         admin_menu('questions');
@@ -24,12 +24,70 @@
                     </div>
                 </div>
             </header>
-
+            <section class="container-fluid-2">
+                <?php
+                    if (isset($red_alert) and !strstr($red_alert, 'already')) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"><?=$red_alert?></div>
+                <?php
+                    }else if(isset($red_alert) and strstr($red_alert, 'already')){
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"> 
+                        <span class="d-block"><?=$red_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./view-questions.php" class="btn btn-info mt-3">View Questions</a>
+                    </div>
+                <?php
+                    }else if (isset($green_alert)) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-success"> 
+                        <span class="d-block"><?=$green_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./view-questions.php" class="btn btn-info mt-3">View Questions</a>
+                    </div>
+                <?php
+                    }
+                ?>
+            </section>
+            <section class="container-fluid-2">
+                <?php
+                    if (!empty($action)) {
+                ?>
+                    <div class="content mb-3">                          
+                        <div class="profile-row col-sm-12 col-lg-10 col-xl-8 bg-white pt-4 py-3">
+                            <div class="row m-auto">
+                            <section class="col-sm-12">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="text-black">
+                                            <span>Do you really want to </span>
+                                            <span class="font-weight-bold"><?=ucfirst($action)?></span>  
+                                            <span>this Question?</span>
+                                        </div>
+                                        <p class="font-weight-bold text-black"><?=$question_data['question']?></p>
+                                    </div>
+                                    <form class="btn-group col-12" method="post">
+                                        <button name="close-del" class="btn  btn-primary px-4">No</button>
+                                        <button name="confirm-del" class="btn  btn-danger px-4">Yes</button>
+                                    </form>
+                                </div>
+                                
+                            </section>
+                        </div>
+                      </div>
+                    </div>
+                <?php
+                    }
+                ?>
+            </section>
+            <?php
+                if (!$does_not_exist) {
+            ?>
             <section class="mb-5" >
                 <div class="container-fluid-2 mt-2" >
 
                 	<div class="content">                          
-                        <div class="profile-row col-sm-12 col-md-8 bg-white pt-4 pb-3">
+                        <div class="profile-row col-sm-12 col-lg-10 col-xl-8 bg-white pt-4 pb-3">
                             <div class="row m-auto">
                             <section class="col-sm-12">
                                 <div class="row">
@@ -43,25 +101,35 @@
                                     <div class="col-sm-12 px-0 px-md-3">
                                         <div class="account-info">
                                             <div class="px-3">
-                                                <strong class=""> Type: </strong> 
+                                                <span class=""> Type: </span> 
                                                 <span class="py-2 badge badge-success d-inline-block">
-                                                    Wazobia Basics
+                                                    <?=$question_data['type']?>
                                                 </span> 
                                             </div>
                                             <div class="px-3">
-                                                <strong> Question: </strong> 
-                                                <span class="d-block">
-                                                    How do I make an investment
+                                                <span class=""> Question: </span> 
+                                                <span class="d-block text-black">
+                                                    <?=$question_data['question']?>
                                                 </span> 
                                             </div>
                                             <div class="px-3">
-                                                <strong> Answer: </strong> 
-                                                <span class="d-block">
-                                                    Log in to your dashboard, click on the invest button below
+                                                <span> Answer: </span> 
+                                                <span class="d-block text-black">
+                                                    <?=$question_data['answer']?>
                                                 </span> 
                                             </div>
-                                            <div class="">
-                                                <a href="./edit-question.php" class="btn btn-info">Edit Question</a>
+                                            <div class="row mx-0">
+                                                <a href="./edit-question.php?id=<?=$question_data['id']?>" 
+                                                    class="btn btn-info col-12 col-lg-auto mb-3 mb-lg-0">
+                                                    Edit Question
+                                                </a>
+                                                <form class="px-0 px-md-3 col-12 col-lg-auto mb-3 mb-lg-0" method="Post">
+                                                    <div class="">
+                                                        <button name="init-delete" class="btn btn-danger btn-block">
+                                                            Delete Question
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +141,9 @@
                     </div>
                 </div>
             </section>
-             
+            <?php
+                }
+            ?>
       
             <!-- Footer -->
             <?php

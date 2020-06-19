@@ -1,6 +1,6 @@
 <?php
     require './admin-menu.php';
-    // require 'backends/home-back.php';
+    require 'backends/view-questions-back.php';
 ?>
     <?php
         admin_menu('questions');
@@ -25,20 +25,36 @@
                 </div>
             </header>
 
-            <section class="" >
+            <section class="mb-5" >
                 <div class="container-fluid-2 mt-2" >
-                	<div class="row ">
-                		<a href="./question-profile.php" class="col">
-                            <div class="row mx-0 px-4 py-2 paper-box rounded-0 def-hover-info mb-4 justify-content-between" >
-                                <div class="question">
-                                    <span>1.</span>
-                                    <span>How do i become a guider?</span>
-                                </div>
-                                <div class="q-type">
-                                    <span class="badge badge-success rounded-0 py-1 px-2">Guider</span>
-                                </div>
-                            </div> 
-                        </a>
+                	<div class="">
+                        <form class="text-right row mb-3" method="post" style="margin-top: -20px">
+                            <div class="ml-auto col-auto">
+                                <button class="btn btn-info" name="all-questions">All Questions</button>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-success" name="my-questions">My Questions</button>
+                            </div>
+                        </form>
+                        <?php
+                            foreach ($all_questions as $key => $value) {
+                        ?>
+                    		<a href="./question-profile.php?id=<?=$value['id']?>" class="w-100">
+                                <div class="row mx-0 px-4 py-2 paper-box rounded-0 def-hover-info mb-2 justify-content-between" >
+                                    <div class="question">
+                                        <span><?=$key+1?>.</span>
+                                        <span><?=$value['question']?></span>
+                                    </div>
+                                    <div class="q-type">
+                                        <span class="badge <?=badge_class($value['type'])?> badge-success rounded-0 py-1 px-2">
+                                            <?=$value['type']?>
+                                        </span>
+                                    </div>
+                                </div> 
+                            </a>
+                        <?php
+                            }
+                        ?>
                 	</div>
                 </div>
             </section>

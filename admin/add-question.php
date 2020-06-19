@@ -24,7 +24,31 @@
                     </div>
                 </div>
             </header>
-
+            <section class="container-fluid-2">
+                <?php
+                    if (isset($red_alert) and !strstr($red_alert, 'already')) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"><?=$red_alert?></div>
+                <?php
+                    }else if(isset($red_alert) and strstr($red_alert, 'already')){
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-danger"> 
+                        <span class="d-block"><?=$red_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./add-question.php" class="btn btn-info mt-3">Post New Question</a>
+                    </div>
+                <?php
+                    }else if (isset($green_alert)) {
+                ?>
+                    <div class="alert col-sm-12 col-md-12 col-lg-7 alert-success"> 
+                        <span class="d-block"><?=$green_alert?></span> 
+                        <a href="./home.php" class="btn btn-success mt-3">Back to Home</a>
+                        <a href="./add-question.php" class="btn btn-info mt-3">Post New Question</a>
+                    </div>
+                <?php
+                    }
+                ?>
+            </section>
             <section class="mb-5" >
                 <div class="container-fluid-2 mt-2" >
 
@@ -70,7 +94,7 @@
                                             <div class="px-3 ">
                                                 <label for="answer"> Answer </label> 
                                                 <span class="answer d-none"><?=$answer?></span> 
-                                                <textarea rows="4" class=" form-control" id="answer" 
+                                                <textarea rows="7" class=" form-control" id="answer" 
                                                     tabindex="3" name="answer" placeholder="Type in the answer...">
                                                     
                                                 </textarea>
