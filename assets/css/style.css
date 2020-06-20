@@ -545,7 +545,7 @@ a:hover.paper-box {
 #claire-aside #claire-main-menu ul li,
 #claire-aside #claire-main-menu ul li a {
     margin: 0;
-    padding: 0;
+    /*padding: 0;*/
     border: 0;
     list-style: none;
     display: block;
@@ -558,12 +558,12 @@ a:hover.paper-box {
     padding: 20px 0 10px 0;
 }
  
-#claire-aside #claire-main-menu ul li {
+#claire-aside #claire-main-menu ul li a{
     padding: 20px 0 12px 25px;
     color: #fff;
     border-bottom: 1px dashed #0DC242;
 }
-#claire-aside #claire-main-menu ul li:hover {
+#claire-aside #claire-main-menu ul li a:hover {
     color: #fff;
     background: rgba(50, 50, 50, 0.3);
     transition: all 0.5s;
@@ -593,6 +593,7 @@ a:hover.paper-box {
     outline: none;
     text-decoration: none !important;
 }
+
 .def-hover-info:hover {
     border-bottom: 2px solid #5AC7D5;
     color: #000;
@@ -2311,6 +2312,7 @@ section.claire-login {
     text-decoration: underline;
     overflow-wrap: break-word;
 }
+ 
 .break-word {
     overflow-wrap: break-word;
 }

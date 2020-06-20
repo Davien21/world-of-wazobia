@@ -14,8 +14,14 @@
                         <div class="row mt-5 mt-md-0">
                             <div class="col-md-12 ">
                                 <h2 class="claire-headin my-0">Frequently Asked Questions</h2>
-                                <span class="heading-meta">Get answers to the most common questions on Wazobia for free.</span>
-                                
+                                <span class="heading-meta mb-0">Get answers to the most common questions on Wazobia for free.</span>
+                                <div class="mb-3">
+                                    <a href="https://www.wazobiaway.cash/?view=privacy" target="__blank" >
+                                        
+                                        <span>Click this link to go to the </span>
+                                        <span class="link def-hover">Official Wazobia Rules Section</span> 
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
